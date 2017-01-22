@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<redises>
+	<redis>
+		<redis_name>tms</redis_name>
+		<redis_mode>standalone</redis_mode>
+		<servers>
+			<server host="172.16.3.13" port="6371" timeout="5000" password="foobared"/>
+		</servers>
+		<max_total>500</max_total>
+		<max_idle>5</max_idle>
+		<max_wait>10000</max_wait>
+		<test_on_borrow>false</test_on_borrow>
+		<test_on_return>false</test_on_return>
+	</redis>
+</redises>

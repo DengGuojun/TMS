@@ -1,0 +1,35 @@
+﻿<?xml version="1.0"?>
+
+<project name="Tms" default="${client.jar}" basedir=".">
+
+	<!-- dir/file define -->
+	<property name="build.dir" value="WebContent/WEB-INF/classes/"/>
+	<property name="dist.dir" value="dist"/>
+	<property name="client.jar" value="lpmas-tms-client-1.0.1.jar"/>
+
+	<target name="prepare">
+		<mkdir dir="${dist.dir}"/>
+		<delete>
+			<fileset dir="${dist.dir}">
+				<include name="${dist.jar}"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="${client.jar}" depends="prepare">
+		<jar jarfile="${dist.dir}/${client.jar}">
+			<fileset dir="${build.dir}" >
+				<include name="com/lpmas/tms/transporter/bean/**"/>
+				<include name="com/lpmas/tms/express/bean/**"/>
+				<include name="com/lpmas/tms/client/**"/>
+				<include name="com/lpmas/tms/config/TmsClientConfig.class"/>
+				<include name="com/lpmas/tms/config/TmsClientCacheConfig.class"/>
+				<include name="com/lpmas/tms/config/TmsConfig.class"/>
+				<include name="com/lpmas/tms/transporter/business/TransporterInfoMediator.class"/>
+				<include name="com/lpmas/tms/component/**"/>
+				<exclude name="com/lpmas/tms/component/impl/**"/>
+			</fileset>
+		</jar>
+	</target>
+	
+</project>
